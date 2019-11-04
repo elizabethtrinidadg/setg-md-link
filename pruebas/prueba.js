@@ -5,7 +5,27 @@ const chalk = require('chalk');
 const figlet = require('figlet');
 const inquirer = require('inquirer');
 
+//2
+const hacerPreguntas = () => {
+    const preguntas = [
+        {
+            name: 'FICHERO',
+            type: 'input',
+            message: '¿Cómo se va a llamar tu fichero? (SIN EXTENSIÓN)'
+        },
+        {
+            name: 'EXTENSIÓN',
+            type: 'LIST',
+            message: '¿Qué extensión tendrá tu nuevo fichero?',
+            choices: ['.js', '.ts', '.java', '.rb', '.kt', '.php', '.html', '.css'],
+            filter: function(val) {
+                return val.split('.')[1];
+            }
+        }
+    ]
+}
 
+//1
 const iniciar = () => {
     console.log(
         chalk.green.green(
