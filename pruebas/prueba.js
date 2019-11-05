@@ -14,8 +14,8 @@ const hacerPreguntas = () => {
             message: '¿Cómo se va a llamar tu fichero? (SIN EXTENSIÓN)'
         },
         {
-            name: 'EXTENSIÓN',
-            type: 'LIST',
+            name: 'EXTENSION',
+            type: 'list',
             message: '¿Qué extensión tendrá tu nuevo fichero?',
             choices: ['.js', '.ts', '.java', '.rb', '.kt', '.php', '.html', '.css'],
             filter: function(val) {
@@ -38,11 +38,13 @@ const iniciar = () => {
         );
 }
 
-const ejecutar = async() => {
+const ejecutar = async () => {
 //mostrar informacion de la libreria en la cabecera
 iniciar();
 // preguntas necesarias para crear fichero (nombre, y extension)
 const respuestas = await hacerPreguntas();
+const { FICHERO, EXTENSION } = respuestas;
+console.log(respuestas);
 //crear fichero
 
 //añadimos mensaje de creacion correcta del nuevo fichero
