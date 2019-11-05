@@ -22,7 +22,8 @@ const hacerPreguntas = () => {
                 return val.split('.')[1];
             }
         }
-    ]
+    ];
+    return inquirer.prompt(preguntas);
 }
 
 //1
@@ -41,7 +42,7 @@ const ejecutar = async() => {
 //mostrar informacion de la libreria en la cabecera
 iniciar();
 // preguntas necesarias para crear fichero (nombre, y extension)
-
+const respuestas = await hacerPreguntas();
 //crear fichero
 
 //añadimos mensaje de creacion correcta del nuevo fichero
