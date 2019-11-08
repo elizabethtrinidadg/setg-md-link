@@ -5,6 +5,13 @@ const chalk = require('chalk');
 const figlet = require('figlet');
 const inquirer = require('inquirer');
 
+//3
+const crearFichero = (nombreFichero, extension) => {
+    const pathFichero = `${process.cwd()}/${nombreFichero}.${extension}`;
+    shelljs.touch(pathFichero);
+    return pathFichero;
+}
+
 //2
 const hacerPreguntas = () => {
     const preguntas = [
@@ -29,14 +36,15 @@ const hacerPreguntas = () => {
 //1
 const iniciar = () => {
     console.log(
-        chalk.green.green(
-            figlet.textSync('Prueba CLI'), {
-                font: 'Bubble',
+        chalk.green(
+            figlet.textSync('Creador CLI', {
+                font: 'ASCII New Roman',
                 horizontalLayout: 'default',
-                verticalLayout: "default"
+                verticalLayout: 'default'
             })
-        );
-}
+        )
+    );
+        };
 
 const ejecutar = async () => {
 //mostrar informacion de la libreria en la cabecera
@@ -46,7 +54,7 @@ const respuestas = await hacerPreguntas();
 const { FICHERO, EXTENSION } = respuestas;
 console.log(respuestas);
 //crear fichero
-
+const pathFichero = crearFichero(FICHERO, EXTENSION);
 //añadimos mensaje de creacion correcta del nuevo fichero
 };
 
